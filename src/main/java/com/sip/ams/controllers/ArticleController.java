@@ -63,4 +63,8 @@ public class ArticleController {
 			return ResponseEntity.ok().build();
 		}).orElseThrow(() -> new IllegalArgumentException("Article not found with id " + articleId));
 	}
+	@GetMapping("/{articleId}")
+	public Article getArticle(@PathVariable("articleId") long id) {
+		return articleRepository.findById(id).get();
+	}
 }
